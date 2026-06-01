@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Bulan ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#090011,#18001f,#240029);
+overflow:hidden;
+height:100vh;
+color:white;
+}
+
+.slide{
+display:none;
+width:100%;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:30px;
+}
+
+.active{
+display:flex;
+}
+
+.bloom{
+font-size:120px;
+animation:bloom 2s infinite alternate;
+}
+
+@keyframes bloom{
+from{
+transform:scale(.8);
+}
+to{
+transform:scale(1.2);
+}
+}
+
+.openBtn{
+margin-top:30px;
+padding:15px 40px;
+border:none;
+border-radius:50px;
+font-size:18px;
+cursor:pointer;
+background:#ff4fa1;
+color:white;
+box-shadow:0 0 20px #ff4fa1;
+}
+
+#typing{
+max-width:700px;
+font-size:24px;
+line-height:1.8;
+}
+
+.photo{
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+border:5px solid #ff4fa1;
+box-shadow:0 0 30px #ff4fa1;
+margin-bottom:25px;
+}
+
+.nextBtn{
+margin-top:25px;
+padding:12px 35px;
+border:none;
+border-radius:50px;
+background:#ff4fa1;
+color:white;
+cursor:pointer;
+}
+
+#love{
+font-size:70px;
+font-weight:900;
+color:#ff4fa1;
+text-shadow:
+0 0 10px #ff4fa1,
+0 0 20px #ff4fa1,
+0 0 40px #ff4fa1,
+0 0 80px #ff4fa1;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.15);
+}
+}
+
+.forever{
+margin-top:20px;
+font-size:28px;
+opacity:.9;
+}
+
+.butterfly{
+position:absolute;
+font-size:25px;
+animation:fly linear forwards;
+pointer-events:none;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(100vh) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120px) rotate(360deg);
+opacity:0;
+}
+}
+
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+<source src="ssstik.io_1780299665921.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Slide 1 -->
+<div class="slide active" id="slide1">
+
+<div class="bloom">🌷</div>
+
+<h1>For You</h1>
+
+<button class="openBtn" onclick="openLetter()">
+OPEN >
+</button>
+
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" id="slide2">
+
+<div id="typing"></div>
+
+<button class="nextBtn" onclick="goSlide3()">
+NEXT >
+</button>
+
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" id="slide3">
+
+<img src="IMG-20260529-WA0013.jpg" class="photo">
+
+<h2>
+Kamu cantik dengan caramu sendiri ❤️
+</h2>
+
+<p style="margin-top:15px;font-size:20px;">
+Jangan terlalu keras pada dirimu ya.
+Aku selalu mendoakan yang terbaik untukmu.
+</p>
+
+<button class="nextBtn" onclick="goSlide4()">
+NEXT >
+</button>
+
+</div>
+
+<!-- Slide 4 -->
+<div class="slide" id="slide4">
+
+<div id="love">
+I LOVE YOU ❤️
+</div>
+
+<div class="forever">
+Forever & Always
+</div>
+
+</div>
+
+<script>
+
+const message = `
+
+Hai buyan gw
+
+Aku cuma mau bilang makasih
+karena sudah hadir dan memberi
+banyak warna dalam hariku.
+
+Semoga kamu selalu bahagia,
+sehat, dan dikelilingi hal-hal baik.
+
+🤍
+
+`;
+
+let i = 0;
+
+function openLetter(){
+
+document.getElementById('slide1').classList.remove('active');
+document.getElementById('slide2').classList.add('active');
+
+typeWriter();
+
+}
+
+function typeWriter(){
+
+if(i < message.length){
+
+document.getElementById("typing").innerHTML += message.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,40);
+
+}
+
+}
+
+function goSlide3(){
+
+document.getElementById('slide2').classList.remove('active');
+document.getElementById('slide3').classList.add('active');
+
+}
+
+function goSlide4(){
+
+document.getElementById('slide3').classList.remove('active');
+document.getElementById('slide4').classList.add('active');
+
+}
+
+function butterfly(){
+
+const b = document.createElement("div");
+
+b.classList.add("butterfly");
+
+const icons = [
+"🦋","💙","💜","🩵","🩷"
+];
+
+b.innerHTML =
+icons[Math.floor(Math.random()*icons.length)];
+
+b.style.left =
+Math.random()*100+"vw";
+
+b.style.animationDuration =
+(Math.random()*5+5)+"s";
+
+document.body.appendChild(b);
+
+setTimeout(()=>{
+b.remove();
+},10000);
+
+}
+
+setInterval(butterfly,350);
+
+</script>
+
+</body>
+  </html>
